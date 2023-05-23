@@ -20,7 +20,7 @@ app.use(cors({ origin: true, credentials: true }));
 // Init Middleware
 app.use(express.json({ extended: false }));
 
-// // use Routes
+
 // app.use("/api/places", places); //use this when implementing routes
 
 app.use("/transportation", transportationRoutes);
