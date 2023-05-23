@@ -7,6 +7,8 @@ const path = require("path");
 
 // routes
 // const places = require("./routes/places"); //use this when implementing routes
+const transportationRoutes = require("./routes/transportation");
+=======
 // const users = require('./routes/users');  //use this when implementing routes
 
 const app = express();
@@ -20,9 +22,11 @@ app.use(cors({ origin: true, credentials: true }));
 // Init Middleware
 app.use(express.json({ extended: false }));
 
-// // use Routes
+
 // app.use("/api/places", places); //use this when implementing routes
 // app.use('/api/users', users);  //use this when implementing routes
+
+app.use("/transportation", transportationRoutes);
 
 app.use(express.json({ extended: false }));
 
