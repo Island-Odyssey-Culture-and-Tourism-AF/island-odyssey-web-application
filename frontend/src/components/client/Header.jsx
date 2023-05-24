@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function Header() {
+export default function Header({ style }) {
   return (
-    <div>
-      <div className="container header-main">
-        <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <div style={style}>
+      <div className="container" style={style}>
+        <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom" style={style}>
           <a href="/" className="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
             <div className='header-logo'>Island Odyssey</div>
           </a>
