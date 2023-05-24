@@ -1,5 +1,6 @@
 import React from 'react'
 import './styles.css'
+import { NavLink } from 'react-router-dom'
 
 export default function Header({ style }) {
   return (
@@ -10,11 +11,11 @@ export default function Header({ style }) {
             <div className='header-logo'>Island Odyssey</div>
           </a>
           <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" className="nav-link px-2 link-secondary">Home</a></li>
-            <li><a href="#" className="nav-link px-2 link-dark">Travel Map</a></li>
-            <li><a href="#" className="nav-link px-2 link-dark">Transport</a></li>
-            <li><a href="#" className="nav-link px-2 link-dark">Blogs</a></li>
-            <li><a href="#" className="nav-link px-2 link-dark">Job Opportunities</a></li>
+            <li><NavLink to='/homepage' style={{ textDecoration: 'none' }}><a href="#" className="nav-link px-2 link-secondary">Home</a></NavLink></li>
+            <li><NavLink to='/places-page' style={{ textDecoration: 'none' }}><a href="#" className="nav-link px-2 link-dark">Travel Map</a></NavLink></li>
+            <li><NavLink to='/transport-page' style={{ textDecoration: 'none' }}><a href="#" className="nav-link px-2 link-dark">Transport</a></NavLink></li>
+            <li><NavLink to='/blog-page' style={{ textDecoration: 'none' }}><a href="#" className="nav-link px-2 link-dark">Blogs</a></NavLink></li>
+            <li><NavLink to='/jobs-page' style={{ textDecoration: 'none' }}><a href="#" className="nav-link px-2 link-dark">Job Opportunities</a></NavLink></li>
             <li><a href="#" className="nav-link px-2 link-dark">About us</a></li>
             <li><a href="#" className="nav-link px-2 link-dark">Contact us</a></li>
           </ul>

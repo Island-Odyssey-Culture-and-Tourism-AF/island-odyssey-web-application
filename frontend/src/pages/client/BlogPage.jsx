@@ -3,16 +3,17 @@ import Footer from '../../components/client/Footer'
 import Header from '../../components/client/Header'
 import './styles.css'
 
-export default function BookingPage() {
+export default function BlogPage() {
 
   const headerBookingPageStyle = {
     height: "132px",
     backgroundColor: 'lightgreen'
   }
+
   return (
     <div>
       <Header style={headerBookingPageStyle} />
-      BookingPage
+      BlogPage
       <Footer />
     </div>
   )
