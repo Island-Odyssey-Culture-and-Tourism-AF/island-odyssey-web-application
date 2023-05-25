@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import {useEffect,useState} from 'react'
 
 export default function AddTransportation() {
   const validationSchema = Yup.object().shape({
@@ -28,8 +29,33 @@ export default function AddTransportation() {
       });
   };
 
+  // create image slider 
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [
+    "image1.jpg",
+    "image2.jpg",
+    "image3.jpg",
+    "image4.jpg",
+    "image5.jpg",
+  ];
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentImageIndex(
+        (currentImageIndex) => (currentImageIndex + 1) % images.length
+      );
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, [images.length]);
+
   return (
     <div>
+      <img
+        src={images[currentImageIndex]}
+        alt={`Image ${currentImageIndex + 1}`}
+      />
+
       <Formik
         initialValues={{
           destination: "",
@@ -62,7 +88,7 @@ export default function AddTransportation() {
               textAlign: "center",
               border: "1px solid black",
               padding: "20px",
-              margin:'30px'
+              margin: "30px",
             }}
           >
             <div className="form-group form-outline">
