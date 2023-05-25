@@ -1,11 +1,10 @@
+import React, { useEffect } from 'react'
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import Select from 'react-select';
 
 
-
-
-
-
-
-const TravelAgentViewAll = () => {
+const AdminViewAllJobs = () => {
 
     const id = localStorage.getItem("id");
     const [job , setJob] = React.useState([]);
@@ -90,13 +89,13 @@ const TravelAgentViewAll = () => {
     <body >
          
 
-   <DashboardHeader/>
+   
    
 
 
 <div class="container-fluid">
  <div class="row">
-   <SideNav/>
+ 
 
    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -169,4 +168,4 @@ const TravelAgentViewAll = () => {
   )
 }
 
-export default TravelAgentViewAll
+export default AdminViewAllJobs

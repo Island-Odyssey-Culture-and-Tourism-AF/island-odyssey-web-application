@@ -1,9 +1,7 @@
-
-
-
-
-
-
+import React from 'react'
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import Select from 'react-select';
 
 const AddJobs = () => {
 
@@ -45,7 +43,7 @@ const AddJobs = () => {
             console.log(jobPlayload)
             const res = await axios.post("http://localhost:8090/JobVacancy/add",jobPlayload);
             console.log(res);
-            Swal({
+            Swal.fire({
                 title: "Success!",
                 text: "Job added successfully",
                 icon: 'success',
@@ -55,7 +53,7 @@ const AddJobs = () => {
                 window.location.href = "/dashboard_ta";
             })
         } catch (err) {
-            Swal({
+            Swal.fire({
                 title: "Error!",
                 text: err.response.data.msg,
                 icon: 'warning',
@@ -138,10 +136,10 @@ const AddJobs = () => {
 
   return (
     <div>
-        <DashboardHeader />
+       
     <div class="container-fluid" >
         <div class="row">
-            <SideNav/>
+           
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">

@@ -1,8 +1,8 @@
-
-
-
-
-
+import React, { useEffect, useState } from 'react'
+import { NavLink,Link,useParams,useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import Select from 'react-select';
 
 
 const UpdateJob = () => {
@@ -116,10 +116,8 @@ const UpdateJob = () => {
 
   return (
     <div>
-        <DashboardHeader />
     <div class="container-fluid" >
         <div class="row">
-            <SideNav/>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
