@@ -8,7 +8,7 @@ const path = require("path");
 // routes
 // const places = require("./routes/places"); //use this when implementing routes
 const transportationRoutes = require("./routes/transportation");
-=======
+const pointsRouter = require("./routes/Points");
 // const users = require('./routes/users');  //use this when implementing routes
 
 const app = express();
@@ -27,6 +27,7 @@ app.use(express.json({ extended: false }));
 // app.use('/api/users', users);  //use this when implementing routes
 
 app.use("/transportation", transportationRoutes);
+app.use("/api/points", pointsRouter);
 
 app.use(express.json({ extended: false }));
 
