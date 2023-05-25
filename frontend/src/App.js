@@ -7,7 +7,7 @@ import TransportationForm from "./components/client/TransportationForm";
 import TransportationTable from "./components/client/TransportationTable";
 import MapComponent from "./components/client/MapComponent";
 
-import Homepage from './pages/client/Homepage';
+
 import BookingPage from './pages/client/BookingPage';
 import Dashboard from './pages/admin/Dashboard';
 import PlacesToVisitManagement from './pages/admin/PlacesToVisitManagement';
@@ -29,7 +29,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Homepage />} />
 
-          <Route exact path="/homepage" element={<Homepage />} />
+         
           <Route
             exact
             path="/transportationForm"
