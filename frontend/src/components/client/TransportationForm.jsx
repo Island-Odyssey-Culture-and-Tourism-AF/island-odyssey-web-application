@@ -62,6 +62,7 @@ export default function AddTransportation() {
               textAlign: "center",
               border: "1px solid black",
               padding: "20px",
+              margin:'30px'
             }}
           >
             <div className="form-group form-outline">
