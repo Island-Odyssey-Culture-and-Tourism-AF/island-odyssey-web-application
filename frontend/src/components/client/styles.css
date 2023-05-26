@@ -1,0 +1,27 @@
+.select-location {
+  width: 45%;
+}
+.sort-by {
+  width: 45%;
+}
+.view-btn {
+  width: 8rem;
+}
+
+.hotel-detail-card-text {
+  display: flex;
+  flex-direction: column;
+  width: 70rem;
+}
+
+.view-hotel-detail-link {
+  color: #00008B;
+  font-size: 1rem;
+}
+
+.custom-datepicker-input {
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  height: 2.4rem;
+}
