@@ -64,33 +64,6 @@ const AddJobs = () => {
     }
 
 
-    // const JobCategoryies = [
-    //     { value: "Full Time", label: "Full Time" },
-    //     { value: "Part Time", label: "Part Time" },
-    //     { value: "Contract", label: "Contract" },
-
-    // ];
-
-    // const JobType = [
-    //     { value: "Human Resources Managment", label: "Human Resources Managment" },
-    //     { value: "Information Technology", label: "Information Technology" },
-    //     { value: "Accounting and Finance", label: "Accounting and Finance" },
-    //     { value: "Health Sector", label: "Health Sector" },
-    //     { value: "Education", label: "Education" },
-
-    // ];
-
-//    const handleJobCategory = (e) => {
-//         setJobCategory(e.name);
-//     };
-
-    // const onJobCategoryiesOptionSelected = (e) => {
-    //     this.setJobCategory({ jobCategory: e.label });
-    // };
-
-    // const onJobTypeOptionSelected = (e) => {
-    //     this.setJobType({ jobType: e.label });
-    //   }
 
     const handleImageChange = async e => {
       e.preventDefault()

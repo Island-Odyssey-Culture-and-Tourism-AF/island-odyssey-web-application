@@ -8,8 +8,7 @@
 const UserViewAllJobs = () => {
 
     const [searchTerm, setSearchTerm] = React.useState("");
-    const [jobvacancy, setJobvacancy] = React.useState([]);
-    
+    const [jobvacancy, setJobvacancy] = Reactnpm 
     useEffect(()=>{
         const getAllVacancy = async () => {
             await axios.get(`http://localhost:8090/JobVacancy`).then((res) => {
