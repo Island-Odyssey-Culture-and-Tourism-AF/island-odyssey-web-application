@@ -22,7 +22,7 @@ function App() {
           <Route path='/addjob' element={<AddJobs/>}/>
           <Route path='/alljob' element={<AllJobsEdit/>}/>
           <Route path='/adminviewjob' element={<AdminViewAllJobs/>}/>
-          <Route path='/updatejob/:id' element={<UpdateJob/>}/>
+          <Route path='/update/jobvacancies/:id' element={<UpdateJob/>}/>
 
         </Routes>
       </div>

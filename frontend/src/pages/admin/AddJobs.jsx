@@ -41,7 +41,7 @@ const AddJobs = () => {
         e.preventDefault();
         try {
             console.log(jobPlayload)
-            const res = await axios.post("http://localhost:8090/JobVacancy/add",jobPlayload);
+            const res = await axios.post("http://localhost:5000/api/JobVacancy/send",jobPlayload);
             console.log(res);
             Swal.fire({
                 title: "Success!",
@@ -50,7 +50,7 @@ const AddJobs = () => {
                 timer: 2000,
                 button: false,
             }).then(()=>{
-                window.location.href = "/dashboard_ta";
+                window.location.href = "/adminviewjob";
             })
         } catch (err) {
             Swal.fire({
@@ -84,7 +84,7 @@ const AddJobs = () => {
           formData.append('cloud_name', 'drao60sj6')
   
           // setLoading(true)
-          const res = await axios.post( "https://api.cloudinary.com/v1_1/drao60sj6/image/upload",
+          const res = await axios.post( "",
           formData,
           {
             method: "post",

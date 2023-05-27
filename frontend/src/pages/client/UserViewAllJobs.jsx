@@ -1,8 +1,6 @@
-
-
-
-
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 
 const UserViewAllJobs = () => {
@@ -11,7 +9,7 @@ const UserViewAllJobs = () => {
     const [jobvacancy, setJobvacancy] = Reactnpm 
     useEffect(()=>{
         const getAllVacancy = async () => {
-            await axios.get(`http://localhost:8090/JobVacancy`).then((res) => {
+            await axios.get(`http://localhost:5000/api/JobVacancy/all`).then((res) => {
                 setJobvacancy(res.data);
             console.log( res.data)
             }).catch((err) => {

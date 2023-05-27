@@ -9,6 +9,8 @@ const path = require("path");
 // const places = require("./routes/places"); //use this when implementing routes
 // const users = require('./routes/users');  //use this when implementing routes
 
+ const JobVacancy = require('./routes/JobVacancy');  //use this when implementing routes
+
 const app = express();
 
 // Connect Database
@@ -23,6 +25,7 @@ app.use(express.json({ extended: false }));
 // // use Routes
 // app.use("/api/places", places); //use this when implementing routes
 // app.use('/api/users', users);  //use this when implementing routes
+ app.use('/api/JobVacancy', JobVacancy); 
 
 app.use(express.json({ extended: false }));
 
