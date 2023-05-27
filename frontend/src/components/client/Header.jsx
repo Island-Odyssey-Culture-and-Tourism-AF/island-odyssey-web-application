@@ -16,7 +16,7 @@ export default function Header({ style }) {
             <li><NavLink to='/transport-page' style={{ textDecoration: 'none' }}><a href="#" className="nav-link px-2 link-dark">Transport</a></NavLink></li>
             <li><NavLink to='/blog-page' style={{ textDecoration: 'none' }}><a href="#" className="nav-link px-2 link-dark">Blogs</a></NavLink></li>
             <li><NavLink to='/jobs-page' style={{ textDecoration: 'none' }}><a href="#" className="nav-link px-2 link-dark">Job Opportunities</a></NavLink></li>
-            <li><a href="#" className="nav-link px-2 link-dark">About us</a></li>
+            <li><NavLink to='/booking-page' style={{ textDecoration: 'none' }}><a href="#" className="nav-link px-2 link-dark">Bookings</a></NavLink></li>
             <li><a href="#" className="nav-link px-2 link-dark">Contact us</a></li>
           </ul>
           <div className="col-md-3 text-end">

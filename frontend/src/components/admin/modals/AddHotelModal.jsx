@@ -25,6 +25,8 @@ function SetModal(props) {
   const [roomDetails, setRoomDetails] = useState([]);
   const [description, setDescription] = useState('');
 
+  const publicURL = 'https://island-odyssey-web-application.onrender.com'
+
   const handleDropdownChangeRoomType = (index, event) => {
     const updatedRoomDetails = [...roomDetails];
     updatedRoomDetails[index].roomType = event.target.value;
@@ -98,7 +100,7 @@ function SetModal(props) {
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/api/hotels/', hotelData);
+      const response = await axios.post(`${publicURL}/api/hotels/`, hotelData);
       // Handle the response if required
       setImage(null);
       setName('');
@@ -175,6 +177,7 @@ function SetModal(props) {
           </Form.Group>
           {roomDetails.map((room, index) => (
             <div key={index}>
+            <Form.Label>Room Details</Form.Label>
               <Form.Group className="mb-3" controlId={`roomType-${index}`}>
                 <Form.Label>Room Type</Form.Label>
                 <Form.Control as="select" value={room.roomType} onChange={(e) => handleDropdownChangeRoomType(index, e)} required>

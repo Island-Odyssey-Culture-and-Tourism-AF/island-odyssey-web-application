@@ -48,6 +48,7 @@ export default function SignIn() {
 
         // Call the login function from the context to set the token and role
         login(token, role);
+        console.log(role)
 
         if (role === 'admin') {
           navigate('/admin-dashboard');

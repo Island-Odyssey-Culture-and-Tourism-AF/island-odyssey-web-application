@@ -212,6 +212,7 @@ function SetModal(props) {
           </Form.Group>
           {roomDetails.map((room, index) => (
             <div key={index}>
+            <Form.Label>Room Details</Form.Label>
               <Form.Group className="mb-3" controlId={`roomType-${index}`}>
                 <Form.Label>Room Type</Form.Label>
                 <Form.Control as="select" value={room.roomType} onChange={(e) => handleDropdownChangeRoomType(index, e)} required>
