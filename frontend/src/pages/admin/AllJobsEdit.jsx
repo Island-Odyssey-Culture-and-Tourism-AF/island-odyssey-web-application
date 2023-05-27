@@ -12,7 +12,7 @@ const AllJobsEdit = () => {
 
     useEffect(()=>{
         const getOwnJob = async () => {
-          await axios.get(`http://localhost:8090/JobVacancy/ownjob/${localStorage.getItem("id")}`).then((res) => {
+          await axios.get(`http://localhost:5000/api/JobVacancy/all`).then((res) => {
             setJob(res.data);
           }).catch((err) => {
               console.log(err.massage);
@@ -118,15 +118,15 @@ const AllJobsEdit = () => {
            </tr>
          </thead>
          {filteredJob.map((job, index) => {
-          const closingDate = new Date(job.closing_date);
-          const currentDate = new Date();
+          // const closingDate = new Date(job.closing_date);
+          // const currentDate = new Date();
 
-          let color = 'green';
-          if (closingDate < currentDate) {
-            color = 'red';
-          } 
+          // let color = 'green';
+          // if (closingDate < currentDate) {
+          //   color = 'red';
+          // } 
 
-          const formattedClosingDate = closingDate.toISOString().split('T')[0];
+          // const formattedClosingDate = closingDate.toISOString().split('T')[0];
           
 
           return (
@@ -136,12 +136,10 @@ const AllJobsEdit = () => {
                 <td>{job.title}</td>
                 <td>{job.jobType}</td>
                 <td>{job.jobCategory}</td>
-                <td>{job.createdAt.toString().substring(0,10)}</td>
-                <td style={{ marginTop: "5px", color, fontWeight: 'bold' }}>
-                  {formattedClosingDate}
-                </td>
+                <td>{job.createdAt}</td>
+                <td >{job.closing_date}</td>
                 <td>
-                    <a href={`/UpdateJob/${job._id}`} >
+                    <a href={`/update/jobvacancies/${job._id}`} >
                     <button type="button" class="btn btn-primary" style={{ margin:'5px' }}>Update</button>
                     </a>
                     <button type="button" class="btn btn-danger"onClick={()=>deleteItem(job._id)} >Delete</button>

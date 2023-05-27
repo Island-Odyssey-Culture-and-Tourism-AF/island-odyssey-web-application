@@ -10,6 +10,7 @@ import AdminViewAllJobs from './pages/admin/AdminViewAllJobs';
 import UpdateJob from './pages/admin/UpdateJob';
 
 
+
 function App() {
   return (
     <Router>

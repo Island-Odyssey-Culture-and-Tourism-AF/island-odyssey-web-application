@@ -27,7 +27,7 @@ router.put("/:id", (req, res) => {
       res.status(400).json({ error: "Unable to update the Database" })
     );
 });
-router.delete("/:id", (req, res) => {
+router.delete("delete/:id", (req, res) => {
   Cart.findByIdAndRemove(req.params.id, req.body)
     .then((item) => res.json({ msg: "Job Vacancy deleted successfully" }))
     .catch((err) => res.status(404).json({ error: "No such a job" }));

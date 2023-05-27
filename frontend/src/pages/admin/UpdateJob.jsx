@@ -6,7 +6,7 @@ const UpdateJob = () => {
   const { id } = useParams();
   const [jobVacancy, setJobVacancy] = useState({
     title: "",
-    description: "",
+    discription: "",
     jobType: "",
     jobCategory: "",
     closing_date: "",
@@ -38,6 +38,7 @@ const UpdateJob = () => {
       .put(`http://localhost:5000/api/JobVacancy/${id}`, jobVacancy)
       .then((response) => {
         console.log("Job vacancy updated successfully");
+        window.location.href = "/alljob";
         // Redirect or show a success message
       })
       .catch((error) => {
@@ -63,9 +64,9 @@ const UpdateJob = () => {
         <div className="form-group">
           <label htmlFor="description">Description:</label>
           <textarea
-            id="description"
-            name="description"
-            value={jobVacancy.description}
+            id="discription"
+            name="discription"
+            value={jobVacancy.discription}
             onChange={handleInputChange}
             className="form-control"
           />
@@ -111,7 +112,7 @@ const UpdateJob = () => {
             className="form-control"
           />
         </div>
-        <button type="submit" className="btn btn-primary">Update</button>
+        <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Update</button>
       </form>
     </div>
   );
