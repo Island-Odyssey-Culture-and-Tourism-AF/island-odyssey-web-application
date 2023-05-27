@@ -9,7 +9,8 @@ const path = require("path");
 // const places = require("./routes/places"); //use this when implementing routes
 const transportationRoutes = require("./routes/transportation");
 const pointsRouter = require("./routes/Points");
-// const users = require('./routes/users');  //use this when implementing routes
+const users = require('./routes/users');  //use this when implementing routes
+const hotels = require("./routes/hotels")
 
 const app = express();
 
@@ -24,10 +25,11 @@ app.use(express.json({ extended: false }));
 
 
 // app.use("/api/places", places); //use this when implementing routes
-// app.use('/api/users', users);  //use this when implementing routes
+app.use('/api/users', users);  //use this when implementing routes
 
 app.use("/transportation", transportationRoutes);
 app.use("/api/points", pointsRouter);
+app.use("/api/hotels", hotels)
 
 app.use(express.json({ extended: false }));
 

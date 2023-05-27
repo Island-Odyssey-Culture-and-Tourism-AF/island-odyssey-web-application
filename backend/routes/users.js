@@ -10,9 +10,8 @@ const secretKey = 'yourSecretKey'; // Replace with your own secret key
 // Load User model
 const User = require('../models/User');
 
-// Register a new user
 router.post('/register', async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, role } = req.body;
 
   try {
     // Check if the email is already taken
@@ -27,7 +26,8 @@ router.post('/register', async (req, res) => {
     // Create a new user
     const newUser = new User({
       email,
-      password: hashedPassword
+      password: hashedPassword,
+      role // Assign the provided role to the user
     });
 
     // Save the user to the database
@@ -40,7 +40,6 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Login user
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -62,14 +61,13 @@ router.post('/login', async (req, res) => {
       expiresIn: '1h',
     });
 
-    res.status(200).json({ token });
+    res.status(200).json({ token, role: user.role });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
 
-// Protected route example
 router.get('/protected', (req, res) => {
   // Extract the token from the Authorization header
   const token = req.headers.authorization?.split(' ')[1];
@@ -87,33 +85,32 @@ router.get('/protected', (req, res) => {
       return res.status(401).json({ message: 'Invalid token' });
     }
 
-    // Token is valid, return protected data
-    res.status(200).json({ message: 'Protected data', userId: decodedToken.userId });
+    // Get the user ID from the decoded token
+    const userId = decodedToken.userId;
+
+    // Fetch the user from the database
+    User.findById(userId)
+      .then((user) => {
+        if (!user) {
+          return res.status(404).json({ message: 'User not found' });
+        }
+
+        // Check the role of the user
+        if (user.role !== 'admin') {
+          return res.status(403).json({ message: 'Access denied' });
+        }
+
+        // Token is valid and user is an admin, return protected data
+        res.status(200).json({ message: 'Protected data', userId: decodedToken.userId });
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+      });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
   }
-
-  // @route GET api/users/:email
-  // @description Get single user by email
-  // @access Public
-  // router.get('/:email', async (req, res) => {
-  //   User.findOne(req.body.email)
-  //     .then(user => res.json(user))
-  //     .catch(err => res.status(404).json({ nouserfound: 'No User found' }));
-    
-  //   // // Find user by email
-  //   // const email = req.params.email; // Assuming you're retrieving the email from the request parameters
-  //   // const user = await User.findOne({ email });
-
-  //   // if (!user) {
-  //   //   // User not found
-  //   //   return res.status(404).json({ message: 'User not found' });
-  //   // }
-
-  //   // // User found
-  //   // return res.status(200).json({ user });
-  // });
 });
 
 module.exports = router;

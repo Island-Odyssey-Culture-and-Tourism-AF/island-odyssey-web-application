@@ -2,7 +2,6 @@ import "./App.css";
 import { React } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Homepage from "./pages/client/Homepage";
 import TransportationForm from "./components/client/TransportationForm";
 import TransportationTable from "./components/client/TransportationTable";
 import MapComponent from "./components/client/MapComponent";
@@ -20,12 +19,19 @@ import PlacesToVisitPage from './pages/client/PlacesToVisitPage';
 import TransportPage from './pages/client/TransportPage';
 import JobsPage from './pages/client/JobsPage';
 import BlogPage from './pages/client/BlogPage';
+import ViewHotelDetails from './pages/client/ViewHotelDetails'
+import ViewRoomDetails from "./pages/client/ViewRoomDetails";
+import ReviewBookingDetails from "./pages/client/ReviewBookingDetails";
+import SignIn from "./pages/common/SignIn";
+import SignUp from "./pages/common/SignUp";
+import { AuthProvider } from "./auth/AuthContext";
 
 
 function App() {
   return (
     <Router>
       <div className="App">
+      <AuthProvider>
         <Routes>
           <Route exact path="/" element={<Homepage />} />
 
@@ -55,8 +61,13 @@ function App() {
           <Route path="/hotel-villa-management" element={<HotelVillaManagement/>} />
           <Route path="/advertisement-management" element={<AdvertisementManagement/>} />
           <Route path="/job-management" element={<JobManagement/>} />
-
+          <Route path="/view-hotel-detail" element={<ViewHotelDetails/>} />
+          <Route path="/view-room-detail" element={<ViewRoomDetails/>} />
+          <Route path="/review-booking-detail" element={<ReviewBookingDetails/>} />
+          <Route path="/sign-in" element={<SignIn/>} />
+          <Route path="/sign-up" element={<SignUp/>} />
         </Routes>
+        </AuthProvider>
       </div>
     </Router>
   );

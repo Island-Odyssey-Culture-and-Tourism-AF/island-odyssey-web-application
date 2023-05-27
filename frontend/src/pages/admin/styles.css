@@ -14,3 +14,9 @@
 .content-align {
   padding: 5rem 1rem 0rem 2rem;
 }
+
+.add-hotel-modal {
+  position: absolute;
+  right: 0;
+  padding-right: 1rem;
+}
