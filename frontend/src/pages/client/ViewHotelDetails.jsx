@@ -2,6 +2,7 @@ import React from 'react'
 import Footer from '../../components/client/Footer'
 import Header from '../../components/client/Header'
 import './styles.css'
+import { useParams } from 'react-router-dom';
 
 export default function ViewHotelDetails() {
 

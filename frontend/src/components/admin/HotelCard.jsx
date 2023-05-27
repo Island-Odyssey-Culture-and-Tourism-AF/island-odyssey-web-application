@@ -10,10 +10,12 @@ export default function HotelCard() {
 
   const [hotels, setHotels] = useState([])
 
+  const publicURL = 'https://island-odyssey-web-application.onrender.com'
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/hotels");
+        const response = await axios.get(`${publicURL}/api/hotels`);
         setHotels(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);

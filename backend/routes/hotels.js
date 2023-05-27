@@ -44,6 +44,19 @@ router.get('/:id', (req, res) => {
     .catch(err => res.status(404).json({ nohotelfound: 'No hotel found' }));
 });
 
+router.get('/location/:location', (req, res) => {
+  const location = req.params.location;
+
+  Hotel.find({ location })
+    .then(hotels => {
+      if (hotels.length === 0) {
+        return res.status(404).json({ nohotelfound: 'No hotels found in the specified location' });
+      }
+      res.json(hotels);
+    })
+    .catch(err => res.status(500).json({ error: 'An error occurred while fetching hotels by location' }));
+});
+
 // @route POST api/hotels
 // @description add/save hotel
 // @access Public

@@ -18,6 +18,13 @@ export default function BookingPage() {
     setSelectedDate(date);
   };
 
+  const [selectedHotels, setSelectedHotels] = useState([]);
+
+  const handleHotelsFetched = (hotels) => {
+    setSelectedHotels(hotels);
+    // Do any further processing with the fetched hotel details
+  };
+
 
   const headerBookingPageStyle = {
     height: "132px",
@@ -29,7 +36,7 @@ export default function BookingPage() {
       <div className='booking-page-content'>
         <div className='select-options-header pt-3 pb-3 px-3' style={{ display: 'flex', gap: '10px' }}>
           <div className='select-1' style={{ flex: '1' }}>
-            <SelectLocation />
+            <SelectLocation onHotelsFetched={handleHotelsFetched}/>
           </div>
           <div className='select-2' style={{ flex: '1' }}>
             Check-In
@@ -64,7 +71,7 @@ export default function BookingPage() {
           Showing 1 - 3 of 3 Hotels
         </div>
         <main className="col-md-9 col-lg-10 py-1 px-3" style={{ width: '100%' }}>
-          <HotelDetailCard/>
+          <HotelDetailCard onHotelsFetched={selectedHotels}/>
         </main>
       </div>
       <Footer />
