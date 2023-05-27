@@ -1,6 +1,11 @@
 import './App.css';
 import { React } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+
+
+
+
 import Homepage from './pages/client/Homepage';
 import BookingPage from './pages/client/BookingPage';
 import Dashboard from './pages/admin/Dashboard';
@@ -14,6 +19,11 @@ import PlacesToVisitPage from './pages/client/PlacesToVisitPage';
 import TransportPage from './pages/client/TransportPage';
 import JobsPage from './pages/client/JobsPage';
 import BlogPage from './pages/client/BlogPage';
+
+import AddBlogPage from './pages/blog/AddBlog';
+import AdminBlogPage from './pages/blog/AdminBlogView';
+import UpdateBlog from './pages/blog/UpdateBlog';
+import ViewAllBlog from './pages/blog/ViewAllBlog';
 
 function App() {
   return (
@@ -34,6 +44,11 @@ function App() {
           <Route path="/hotel-villa-management" element={<HotelVillaManagement/>} />
           <Route path="/advertisement-management" element={<AdvertisementManagement/>} />
           <Route path="/job-management" element={<JobManagement/>} />
+
+          <Route path="/add-blog" element={<AddBlogPage/>} />
+          <Route path="/admin-blog-view" element={<AdminBlogPage/>} />
+          <Route path="/update-blog/:id" element={<UpdateBlog />} />
+          <Route path="/view-all-blog" element={<ViewAllBlog/>} />
         </Routes>
       </div>
     </Router>
