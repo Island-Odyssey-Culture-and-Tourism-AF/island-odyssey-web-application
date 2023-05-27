@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const TransportationTable = () => {
   const [transportations, setTransportations] = useState([]);
@@ -47,27 +49,24 @@ const TransportationTable = () => {
   };
 
   const handleView = (id) => {
-    axios
-      .get(`/transportation/${id}`)
-      .then((response) => {
-        const transportation = response.data;
-        console.log("Transportation:", transportation);
-      })
-      .catch((error) => {
-        console.error("Failed to fetch transportation", error);
-      });
+    window.location.href = `/transportation/${id}`;
   };
 
   const handleUpdate = (id) => {
     console.log("Update transportation with ID:", id);
+    window.location.href = `/update/transportation/${id}`;
   };
 
   const handleDelete = (id) => {
     axios
-      .delete(`/transportation/${id}`)
+      .delete(`http://localhost:5000/transportation/${id}`)
       .then((response) => {
         console.log("Transportation deleted successfully");
-        fetchTransportations(); 
+        fetchTransportations();
+        toast.success("Transportation deleted successfully", {
+          autoClose: 3000, // Duration for which the toast message will be displayed
+          onClose: () => window.location.reload(), // Reload the page after the toast is closed
+        });
       })
       .catch((error) => {
         console.error("Failed to delete transportation", error);
